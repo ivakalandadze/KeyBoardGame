@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import StartPage from './pages/StartPage';
+import Game from './pages/Game';
+import LeaderBoard from './pages/LeaderBoard';
+import { UserContext } from './UserContext';
+import { useState } from 'react';
 
 function App() {
+
+  const [player, setPlayer] = useState('gela')
+  const [stats, setStats] = useState([{gela: 4.3}])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <UserContext.Provider value={{player, setPlayer, stats, setStats}}>
+        <Routes>
+          <Route path="/" element={<StartPage />}/>
+          <Route path="/game" element={<Game />}/>
+          <Route path="/leader-board" element={<LeaderBoard />}/>
+        </Routes>
+      </UserContext.Provider>
     </div>
   );
 }
