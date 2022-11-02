@@ -8,8 +8,8 @@ import { useState } from 'react';
 
 function App() {
 
-  const [player, setPlayer] = useState('gela')
-  const [stats, setStats] = useState([{gela: 4.3}])
+  const [player, setPlayer] = useState('')
+  const [stats, setStats] = useState([{}])
   return (
     <div className="App">
       <UserContext.Provider value={{player, setPlayer, stats, setStats}}>
