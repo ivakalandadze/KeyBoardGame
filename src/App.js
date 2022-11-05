@@ -3,16 +3,18 @@ import { Route, Routes } from 'react-router-dom';
 import StartPage from './pages/StartPage';
 import Game from './pages/Game';
 import LeaderBoard from './pages/LeaderBoard';
+import Header from './components/Header';
 import { UserContext } from './UserContext';
 import { useState } from 'react';
 
 function App() {
 
-  const [player, setPlayer] = useState('')
-  const [stats, setStats] = useState([{}])
+  const [player, setPlayer] = useState({name: "", letters: 0})
+  const [stats, setStats] = useState([])
   return (
     <div className="App">
       <UserContext.Provider value={{player, setPlayer, stats, setStats}}>
+        <Header />
         <Routes>
           <Route path="/" element={<StartPage />}/>
           <Route path="/game" element={<Game />}/>
