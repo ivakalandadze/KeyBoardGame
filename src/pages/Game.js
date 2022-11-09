@@ -84,13 +84,19 @@ export default function Game() {
       },[game])
 
       const addToLeaderBoard = () => {
-        setStats(prevState=>([
-          ...prevState,
-          {
-            name: player.name,
-            time: timer
+        setStats(prevState=>{
+          if(prevState[`${player.letters} letters`]){
+            return {
+              ...prevState,
+              [`${player.letters} letters`]:[...prevState[`${player.letters} letters`],{ name:player.name, time:timer}].sort((a, b)=>a.time-b.time)
+            }
+          }else {
+            return {
+              ...prevState,
+              [`${player.letters} letters`]:[{ name:player.name, time:timer}]
+            }
           }
-        ]))
+        })
       }
   return (
     <div>

@@ -1,0 +1,84 @@
+.start-page {
+    height: 93vh;
+    background-color: #EEE2DC;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.start-page-box {
+    margin-top: 30px;
+    border-radius: 10px;
+    background-color: hsl(337, 5%, 71%, 0.3);
+    width: 60%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.start-header {
+    margin: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 40px;
+    color: #123C69
+}
+.welcome-text {
+    font-family: 'Andika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 40px;
+    color: #123C69
+}
+
+.label {
+    font-family: 'Andika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 40px;
+    color: #123C69
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.start-buttons-box{
+    margin-top: 30px;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.start-game-button {
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    background-color: #BAB2B5;
+    font-family: 'Andika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    color: #AC3B61
+}
+
+.leader-board-button {
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    background-color: #AC3B61;
+    font-family: 'Andika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    color: #BAB2B5;
+}
