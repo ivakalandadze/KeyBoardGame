@@ -15,10 +15,11 @@ function App() {
 
   const [stats, setStats] = useState({})
   const [letterOptions, setLetterOptions] = useState([5, 6, 7, 8, 9, 10])
-  const [player, setPlayer] = useState({name: "", letters: letterOptions[0]})
+  const [player, setPlayer] = useState(JSON.parse(localStorage.getItem("player")) || {name: "", letters: letterOptions[0]})
+  const [gameOn, setGameOn] = useState(JSON.parse(localStorage.getItem("state")) || false)
   return (
     <div className="App">
-      <UserContext.Provider value={{player, setPlayer, stats, setStats, letterOptions}}>
+      <UserContext.Provider value={{gameOn, setGameOn, player, setPlayer, stats, setStats, letterOptions}}>
         <Header />
         <Routes>
           <Route path="/" element={<StartPage />}/>

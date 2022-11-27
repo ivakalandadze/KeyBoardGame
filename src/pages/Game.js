@@ -6,7 +6,7 @@ export default function Game() {
     const [apiWord, setApiWord] = useState("")
     const [inputWord, setInputWord] = useState("")
     const [start, setStart] = useState("")
-    const {player, setStats} = useContext(UserContext)
+    const {gameOn, player, setStats} = useContext(UserContext)
     const [countDown, setCountDown] = useState({state: false, display: 3})
     const [charNumber, setCharNumber] = useState(0)
     const [timer, setTimer] = useState(0.0)
@@ -26,6 +26,10 @@ export default function Game() {
       getWord().then(result=>{
         setApiWord(result[0])
       })
+    },[])
+
+    useEffect(()=>{
+      localStorage.setItem("state", JSON.stringify(gameOn))
     },[])
 
     useEffect(()=>{
@@ -98,6 +102,9 @@ export default function Game() {
           }
         })
       }
+      useEffect(()=>{
+        localStorage.setItem(`${player.letters} letter stats`, JSON.stringify(player))
+      })
   return (
     <div>
       welocme {player.name} your word is {apiWord}

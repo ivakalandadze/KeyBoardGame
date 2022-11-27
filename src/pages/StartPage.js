@@ -1,9 +1,9 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { UserContext } from '../UserContext'
 
 export default function StartPage() {
-    const {player, setPlayer, letterOptions} = useContext(UserContext)
+    const {gameOn,setGameOn, player, setPlayer, letterOptions} = useContext(UserContext)
     console.log(player.name)
 
     const handleChange = (event) =>{
@@ -14,6 +14,18 @@ export default function StartPage() {
         }
       })
     }
+
+    const handleStart = () => {
+      player.name&&setGameOn(true)
+    }
+
+    useEffect(()=>{
+      setGameOn(false)
+      localStorage.setItem("state", JSON.stringify(gameOn))
+    },[])
+    useEffect(()=>{
+      localStorage.setItem("player", JSON.stringify(player))
+    },[player])
 
     const optionElements = letterOptions.map(option=>(
       <option value={option}>{option}</option>
@@ -36,7 +48,7 @@ export default function StartPage() {
           </div>
         </div>
         <div className='start-buttons-box'>
-          <Link to="/game"><button className='start-game-button'>Start!</button></Link>
+          <Link to="/game"><button onClick={handleStart}className='start-game-button'>Start!</button></Link>
           <Link to="leader-board"><button className='leader-board-button'>Leaderboard</button></Link>
         </div>
       </div>

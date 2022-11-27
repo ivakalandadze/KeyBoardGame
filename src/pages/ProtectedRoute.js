@@ -1,11 +1,10 @@
 import React, { useContext } from 'react'
 import { UserContext } from '../UserContext'
-import StartPage from './StartPage'
-import { Outlet } from 'react-router-dom'
+import { Navigate, Outlet } from 'react-router-dom'
 
 export default function ProtectedRoute() {
-    const {player} = useContext(UserContext)
+    const {gameOn} = useContext(UserContext)
   return ( 
-    player.name ? <Outlet /> : <StartPage />
+    gameOn ? <Outlet /> : <Navigate  to="/"/>
   )
 }
