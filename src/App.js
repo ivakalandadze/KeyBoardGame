@@ -2,6 +2,7 @@ import './App.css';
 import './Header.css'
 import './StartPage.css'
 import './LeaderBoard.css'
+import './Game.css'
 import { Route, Routes } from 'react-router-dom';
 import StartPage from './pages/StartPage';
 import Game from './pages/Game';

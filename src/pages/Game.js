@@ -23,10 +23,11 @@ export default function Game() {
       setInputWord(prevState=>prevState+e.key)
     }
     useEffect(()=>{
-      getWord().then(result=>{
+      if(start===""){
+        getWord().then(result=>{
         setApiWord(result[0])
-      })
-    },[])
+      })}
+    },[start])
 
     useEffect(()=>{
       localStorage.setItem("state", JSON.stringify(gameOn))
@@ -88,6 +89,7 @@ export default function Game() {
       },[game])
 
       const addToLeaderBoard = () => {
+        if(start==="won"){
         setStats(prevState=>{
           if(prevState[`${player.letters} letters`]){
             return {
@@ -100,24 +102,50 @@ export default function Game() {
               [`${player.letters} letters`]:[{ name:player.name, time:timer}]
             }
           }
-        })
+        })}
       }
       useEffect(()=>{
         localStorage.setItem(`${player.letters} letter stats`, JSON.stringify(player))
       })
-  return (
-    <div>
-      welocme {player.name} your word is {apiWord}
-      {!countDown.state&&start!=="game"&&<button onClick={()=>{
+
+      const handleCountDown = () => {
         setCountDown(prevState=>({...prevState, state:true}))
         setStart("pre")
-        }}>Start the Count Down</button>}
-      <p>{countDown.state&&countDown.display}</p>
-      {inputWord ? inputWord : <></>}
-      {start!=="pre"&&start!="" && timer}
-      {start==="won" && <h1>Congrats You Won!</h1>}
-      {start==="lost" && <h1>Game Over!</h1>}
-      {start==="lost" || start==="won" && <button onClick={addToLeaderBoard}>Add to LeaderBoard</button>}
+      }
+
+      const handlePlayAgain = () => {
+        setCountDown({state: false, display: 3})
+        setInputWord("")
+        setCharNumber(0)
+        setStart("")
+      }
+      
+      const blankLetters = apiWord.split("")
+      const inputWordLetters = blankLetters.map((letter,index)=>(
+          inputWord[index] || "_"
+      ))
+
+      const displayedLetters = inputWordLetters.map(letter=>(
+        <h1 className='letter'>{letter.toUpperCase()}</h1>
+      ))
+
+  return (
+    <div className='game-box'>
+      <h1 className='welcome-header'>Welocme {player.name}</h1>
+      <h3 className='word-introduction-header'>Your word is:</h3>
+      <h2 className='word'>{apiWord.toUpperCase()}</h2>
+      {!countDown.state&&start!=="game"&&<button className="count-down-button"onClick={handleCountDown}>Start the Count Down</button>}
+      {countDown.state&&<p className='count-down'>{countDown.display}</p>}
+      <div className='displayed-letters'>{displayedLetters}</div>
+      <h3 className='timer'>{start!=="pre"&&start!="" && timer.toFixed(2)}</h3>
+      {start==="won" && <h1 className='outcome'>Congrats You Won!</h1>}
+      {start==="lost" && <h1 className='outcome'>Game Over!</h1>}
+      {(start==="lost" || start==="won") && 
+      <div className='outcome-buttons-box'>
+        <button className='play-again-button' onClick={handlePlayAgain}>Play Again</button>
+        {start==="won" && <button className="leader-board-button" onClick={addToLeaderBoard}>Add to LeaderBoard</button>}
+        </div>}
+
     </div>
   )
 }

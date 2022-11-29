@@ -4,8 +4,8 @@ export default function Stat(props) {
     console.log(props)
   return (
     <div className='stat-box'>
-        <p className='name'>Name: {props.name}</p>
-        <p className='time'>Time: {props.time}</p>
+        <p className='stat-info'>Name: {props.name}</p>
+        <p className='stat-info'>Time: {props.time.toFixed(2)}</p>
     </div>
   )
 }

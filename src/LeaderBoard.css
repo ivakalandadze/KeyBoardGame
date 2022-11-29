@@ -7,7 +7,71 @@
 }
 
 .leader-board-header {
-    width: 100vw;
+    width: 50vw;
     display: flex;
     justify-content: space-around;
 }
+
+.option-button {
+    width: 100px;
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    background-color: #AC3B61;
+    font-family: 'Andika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    color: #BAB2B5;
+}
+.choosen-option-button {
+    width: 100px;
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    background-color:#123C69;
+    font-family: 'Andika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    color: #AC3B61;
+}
+
+.stats-container {
+    margin: 10px 0;
+}
+
+.stat-box {
+    background-color: #eee2dc;
+    min-width: 200px;
+    min-height: 60px;
+    margin: 10px 0;
+    padding: 0 10px;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-info {
+    font-family: 'Andika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 40px;
+    color: #AC3B61;;
+    margin: 0;
+}
+
+.warning {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 40px;
+    color: #123C69;
+    margin-top: 40px;
+}
+

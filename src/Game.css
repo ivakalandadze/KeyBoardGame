@@ -1,0 +1,119 @@
+.game-box {
+    height: 92.4vh;
+    background-color: rgb(172, 59, 97, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.welcome-header {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 40px;
+    color: #123C69;
+    margin-top: 40px;
+}
+
+.word-introduction-header {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 40px;
+    color: #123C69;
+    margin: 5px 0px;
+}
+
+.word {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 40px;
+    color: rgb(238, 203, 189);
+}
+
+.count-down-button {
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    background-color: #BAB2B5;
+    font-family: 'Andika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    color: #AC3B61;
+    height: 32px;
+    margin: 15px 0;
+}
+.count-down {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 40px;
+    color: rgb(68, 66, 66);
+    margin: 15px 0;
+    height: 32px;
+}
+
+.displayed-letters {
+    display: flex;
+    flex-direction: row;
+}
+
+.letter {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 40px;
+    color: rgb(238, 203, 189);
+    margin: 0 5px;
+}
+
+.timer {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 40px;
+    color: #123C69;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.outcome {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 36px;
+    color: #BAB2B5;
+    margin-top: 30px;
+    margin-bottom: 50px
+}
+
+.play-again-button {
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    background-color: #BAB2B5;
+    font-family: 'Andika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    color: #AC3B61
+}
+
+.outcome-buttons-box {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-evenly;
+   align-items: center;
+   width: 20%
+}
+

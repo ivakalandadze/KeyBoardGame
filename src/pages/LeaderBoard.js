@@ -4,11 +4,15 @@ import { UserContext } from '../UserContext'
 
 export default function LeaderBoard() {
     const {stats, letterOptions} = useContext(UserContext)
-    const [option, setOption]= useState("5")
-    const optionElements = letterOptions.map(option=>(
-      <button onClick={()=>{setOption(option)}}>{`${option} letter`}</button>
+    const [option, setOption]= useState(5)
+    const optionElements = letterOptions.map(opt=>(
+      <button 
+        className={`${option===opt ? "choosen-" : ""}option-button`}
+        onClick={()=>setOption(opt)}>
+          {`${opt} letter`}
+        </button>
     ))
-    console.log(stats[`${option} letters`])
+    console.log(option)
     const statElements = stats[`${option} letters`] && stats[`${option} letters`].map(stat=>(
       <Stat {...stat}/>
     ))
@@ -17,7 +21,9 @@ export default function LeaderBoard() {
       <div className='leader-board-header'>
         {optionElements}
       </div>
-      {statElements ? statElements : <h1>{`No stats yet for ${option} letter word`}</h1>}
+      <div className='stats-container'>
+        {statElements ? statElements : <h1 className='warning'>{`No stats yet for ${option} letter word`}</h1>}
+      </div>
     </div>
   )
 }
